@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-12 my-3">
+        <h2>Películas en estreno</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 d-flex justify-content-center">
+        <ngb-carousel [wrap]="false" [showNavigationIndicators]="false" (slid)="onSlid($event)"> 
+            <ng-template *ngFor="let playingMovie of mapMoviesShow; let i = index" ngbSlide [id]="i.toString()">
+                <div class=" picsum-img-wrapper">
+                    <img (click)="viewDetail(playingMovie[0],0)" width="25%" [src]="getImage(playingMovie[0],0)">
+                    <img (click)="viewDetail(playingMovie[1],0)" width="25%" [src]="getImage(playingMovie[1],0)">
+                    <img (click)="viewDetail(playingMovie[2],0)" width="25%" [src]="getImage(playingMovie[2],0)">
+                    <img (click)="viewDetail(playingMovie[3],0)" width="25%" [src]="getImage(playingMovie[3],0)">
+                </div>
+            </ng-template>
+        </ngb-carousel>
+    </div>
+</div>
+
+
+<!-- Home - Peliculas Populares -->
+<div class="row">
+    <div class="col-12 my-3 mt-5">
+        <h2>Películas en populares</h2>
+    </div>
+</div>
+
+<div class="row d-flex justify-content-center" infinite-scroll [infiniteScrollDistance]="2.5"
+    (scrolled)="onVerticalScroll()">
+    <div *ngFor="let popularMovie of popularMoviesShow">
+        <div class="col-12 mt-4">
+            <img [src]="getImage(popularMovie,1)" (click)="viewDetail(popularMovie,1)" draggable="false" width="350vw"
+                style="margin: 10px; cursor:pointer">
+            <div style="text-align: center;cursor:pointer" (click)="viewDetail(popularMovie,1)">{{popularMovie.title}}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<ng-template #login  let-modal>
+    <div class="modal-content">
+        <div class="modal-header">
+            INICIAR SESIÓN
+        </div>
+
+    <form loginForm (ngSubmit)="onSubmit()">
+        <div class="modal-body">
+            <div class="form-group" [formGroup]="form">
+                <input id="usernameForm" name="usernameForm" formControlName="username" placeholder="username..." class="form-control">
+                <p *ngIf="form.controls.username?.touched && form.controls.username?.errors"><small class="text-danger">Username debe tener entre 2 y 50 caracteres</small></p>
+            </div>
+
+            <div class="form-group" [formGroup]="form">
+                <input type="password" id="passwordForm" name="passwordForm" formControlName="password" placeholder="password..." class="form-control">
+                <p *ngIf="form.controls.password?.touched && form.controls.password?.errors"><small class="text-danger">Password debe tener entre 2 y 16 caracteres</small></p>
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+            <div class="d-flex justify-content-end">
+                <button [disabled]="!form.valid" type="submit" class="btn btn-primary">ACCEDER</button>
+            </div>
+        </div>
+    </form>
+    </div>
+</ng-template>

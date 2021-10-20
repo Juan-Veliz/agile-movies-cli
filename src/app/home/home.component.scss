@@ -1,0 +1,11 @@
+.h-scroll{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    overflow-x: auto;
+}
+
+.card-float{
+    float: left;
+}
+

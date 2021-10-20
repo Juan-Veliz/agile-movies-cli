@@ -1,0 +1,30 @@
+<div class="row mb-5" *ngIf="flag">
+    <div class="col-12 my-3">
+        <h2>{{movie.title}}</h2>
+    </div>
+    <div class="col-12 d-flex justify-content-center">
+        <img [src]="getImage(movieImageBaseUrl, movie.poster_path)"  draggable="false">
+    </div>
+    <div class="col-12 mt-4">
+        <div class="float-left">
+            <img class="mr-3"  draggable="false" [src]="getImage(movieImageBaseUrl, movie.backdrop_path)" width="300vw" style="min-width: 30vw;">
+        </div>
+        <a>{{movie.overview}}</a>
+    </div>
+
+    <div class="col-12 mt-5 mb-3">
+        <h2>Reparto</h2>
+    </div>
+    <div class="col-12">
+        <div class="row h-scroll">
+            <div class="col-3 d-flex justify-content-start">
+                <a *ngFor="let actor of actors">
+                    <div>
+                        <img [src]="getImage(imageBaseUrl,actor.profile_path)" draggable="false" width="200vw" style="margin: 10px" >
+                        <p style="text-align: center">{{actor.name}}</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
